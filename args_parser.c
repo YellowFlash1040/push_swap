@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 14:39:19 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/10 18:29:12 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/15 17:55:29 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ static bool	check_and_atoi(const char *str, int *res)
 		*res = -*res;
 	return (true);
 }
-
-#include <stdio.h>
 
 bool	has_duplicate(t_list *list)
 {

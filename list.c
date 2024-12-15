@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:39:55 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/15 14:01:43 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/15 17:55:41 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ t_list	*add_node_front(int num, t_list **head)
 
 void	clear_list(t_list **head)
 {
-	t_list *temp;
+	t_list	*temp;
 
 	while (*head)
 	{

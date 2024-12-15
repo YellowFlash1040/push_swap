@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/15 17:56:33 by akovtune          #+#    #+#             */
+/*   Updated: 2024/12/15 17:56:34 by akovtune         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "sort.h"
 
-static bool	is_sorted(int *arr, int length);
+// static bool	is_sorted(int *arr, int length);
 
 // heap sort
 void	sort(int *arr, int length)
@@ -32,13 +44,13 @@ void	sort(int *arr, int length)
 	}
 }
 
-static bool	is_sorted(int *arr, int length)
-{
-	int	i;
+// static bool	is_sorted(int *arr, int length)
+// {
+// 	int	i;
 
-	i = 0;
-	while (++i < length)
-		if (arr[i] < arr[i - 1])
-			return (false);
-	return (true);
-}
+// 	i = 0;
+// 	while (++i < length)
+// 		if (arr[i] < arr[i - 1])
+// 			return (false);
+// 	return (true);
+// }

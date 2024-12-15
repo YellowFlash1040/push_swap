@@ -1,6 +1,7 @@
 #include "args_parser.h"
 #include "stack.h"
 #include "push_swap.h"
+#include "sort.h"
 #include <stdio.h>
 #include "helpers.h"
 
@@ -19,7 +20,6 @@ int	main(int argsc, char **args)
 	// t_stack	*item;
 	int		length;
 
-	//{0, 12, 4, 6, 5, 2, 15, 13, 16, 10, 19, 1, 8, 3, 11, 9, 14, 7, 17, 18 };
 	//0 12 4 6 5 2 15 13 16 10 19 1 8 3 11 9 14 7 17 18
 	if (argsc < 2)
 		return (0);
@@ -35,33 +35,19 @@ int	main(int argsc, char **args)
 	while (list)
 	{
 		arr[i++] = list->num;
+		push(create_item(list->num), &stack);
 		temp = list->next;
 		free(list);
 		list = temp;
 	}
+	printf("0 12 4 6 5 2 15 13 16 10 19 1 8 3 11 9 14 7 17 18\n");
 	sort(arr, length);
+	
+	print_array(arr, length);
+	solve(arr, length, stack);
 	
 	free(arr);
 	arr = NULL;
-	// while (list)
-	// {
-	// 	item = create_item(list->num);
-	// 	push(item, &stack);
-	// 	temp = list->next;
-	// 	free(list);
-	// 	list = temp;
-	// }
-	// while (stack)
-	// {
-	// 	t_stack* item = pop(&stack);
-	// 	printf("%d\n", item->num);
-	// 	free(item);
-	// }
-
-
-	// i = 0;
-	// while (length--)
-	// 	printf("%d ", arr[i++]);
 }
 
 // get the array of input numbers lets call it "numbers"
