@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:39:55 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/10 18:46:54 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/15 14:01:43 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_list	*add_node(int num, t_list **head)
 		prev_node = node;
 		node = node->next;
 	}
-	node = (t_list *)fmalloc(sizeof(t_list));
+	node = (t_list *)malloc(sizeof(t_list));
 	if (!node)
 		return (NULL);
 	node->num = num;
@@ -39,7 +39,7 @@ t_list	*add_node_front(int num, t_list **head)
 {
 	t_list	*node;
 
-	node = (t_list *)fmalloc(sizeof(t_list));
+	node = (t_list *)malloc(sizeof(t_list));
 	if (!node)
 		return (NULL);
 	node->num = num;
