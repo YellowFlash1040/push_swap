@@ -1,6 +1,8 @@
 #include "args_parser.h"
 #include "stack.h"
+#include "push_swap.h"
 #include <stdio.h>
+#include "helpers.h"
 
 // read
 // write
@@ -14,10 +16,11 @@ int	main(int argsc, char **args)
 	t_list	*list;
 	t_list	*temp;
 	t_stack	*stack;
-	t_stack	*item;
+	// t_stack	*item;
 	int		length;
 
 	//{0, 12, 4, 6, 5, 2, 15, 13, 16, 10, 19, 1, 8, 3, 11, 9, 14, 7, 17, 18 };
+	//0 12 4 6 5 2 15 13 16 10 19 1 8 3 11 9 14 7 17 18
 	if (argsc < 2)
 		return (0);
 	length = argsc - 1;
@@ -25,28 +28,40 @@ int	main(int argsc, char **args)
 	stack = NULL;
 	if (!list)
 		return (1);
+	int* arr = (int*)malloc(sizeof(int) * length);
+	if (!arr)
+		return (clear_list(&list), 1);
+	int i = 0;
 	while (list)
 	{
-		item = create_item(list->num);
-		push(item, &stack);
+		arr[i++] = list->num;
 		temp = list->next;
 		free(list);
 		list = temp;
 	}
-	for (int i = 0; i < length; i++)
-	{
-		printf("%d\n", stack->num);
-		stack = stack->next;
-	}
-	swap(&stack, length);
-	printf("-------------------------------------\nAFTER SWAP:\n");
-	while (stack)
-	{
-		t_stack* item = pop(&stack);
-		printf("%d\n", item->num);
-		free(item);
-	}
-	// clear_stack(&stack);
+	sort(arr, length);
+	
+	free(arr);
+	arr = NULL;
+	// while (list)
+	// {
+	// 	item = create_item(list->num);
+	// 	push(item, &stack);
+	// 	temp = list->next;
+	// 	free(list);
+	// 	list = temp;
+	// }
+	// while (stack)
+	// {
+	// 	t_stack* item = pop(&stack);
+	// 	printf("%d\n", item->num);
+	// 	free(item);
+	// }
+
+
+	// i = 0;
+	// while (length--)
+	// 	printf("%d ", arr[i++]);
 }
 
 // get the array of input numbers lets call it "numbers"

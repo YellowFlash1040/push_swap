@@ -1,16 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   helpers.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 14:04:35 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/15 17:41:58 by akovtune         ###   ########.fr       */
+/*   Created: 2024/12/15 16:59:24 by akovtune          #+#    #+#             */
+/*   Updated: 2024/12/15 17:08:27 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef HELPERS_H
+# define HELPERS_H
+
+#include <stdio.h>
+
+void	print_array(int *arr, int length);
 
 #endif

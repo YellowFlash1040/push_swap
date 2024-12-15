@@ -1,16 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   sort.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 14:04:35 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/15 17:41:58 by akovtune         ###   ########.fr       */
+/*   Created: 2024/12/15 17:41:33 by akovtune          #+#    #+#             */
+/*   Updated: 2024/12/15 17:41:41 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef SORT_H
+# define SORT_H
+
+# include <stdbool.h>
+
+void	sort(int *arr, int length);
 
 #endif
