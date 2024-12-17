@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers.h                                          :+:      :+:    :+:   */
+/*   phase1.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/15 16:59:24 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/17 12:20:02 by akovtune         ###   ########.fr       */
+/*   Created: 2024/12/16 16:47:21 by akovtune          #+#    #+#             */
+/*   Updated: 2024/12/17 12:20:34 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HELPERS_H
-# define HELPERS_H
+#ifndef PHASE1_H
+# define PHASE1_H
 
+# include "helpers.h"
 # include "stack.h"
-# include <stdio.h>
 
-void	print_array(int *arr, int length);
-void	print_stacks(t_stack *stack_a, int a_len, t_stack *stack_b, int b_len);
+void	phase_1(t_stack **stack_a, t_stack **stack_b, int *arr, int len);
 
 #endif

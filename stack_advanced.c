@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 14:16:40 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/15 18:25:44 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/17 13:11:41 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,29 @@
 static void	swap_3(t_stack **top);
 static void	swap_more_than_3(t_stack **top);
 
-void	rotate(t_stack **top, int steps_amount)
+void	rotate(t_stack **top, char stack_name)
 {
-	t_stack	*new_top;
-
-	new_top = *top;
-	while (new_top && steps_amount--)
-		new_top = new_top->next;
-	if (new_top)
-		*top = new_top;
+	if ((*top) && (*top)->next)
+	{
+		*top = (*top)->next;
+		printf("r%c\n", stack_name);
+	}
 }
 
-void	rev_rotate(t_stack **top, int steps_amount)
+void	rev_rotate(t_stack **top, char stack_name)
 {
 	t_stack	*new_top;
 
 	new_top = *top;
-	while (new_top && steps_amount--)
+	if (new_top)
+	{
 		new_top = new_top->prev;
-	if (new_top)
 		*top = new_top;
+		printf("rr%c\n", stack_name);
+	}
 }
 
-void	swap(t_stack **top, int stack_length)
+void	swap(t_stack **top, int stack_length, char stack_name)
 {
 	if (stack_length < 2)
 		return ;
@@ -47,6 +47,7 @@ void	swap(t_stack **top, int stack_length)
 		swap_3(top);
 	else
 		swap_more_than_3(top);
+	printf("s%c\n", stack_name);
 }
 
 void	swap_3(t_stack **top)

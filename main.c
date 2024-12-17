@@ -35,15 +35,15 @@ int	main(int argsc, char **args)
 	while (list)
 	{
 		arr[i++] = list->num;
-		push(create_item(list->num), &stack);
+		push(create_item(list->num), &stack, false);
 		temp = list->next;
 		free(list);
 		list = temp;
 	}
-	printf("0 12 4 6 5 2 15 13 16 10 19 1 8 3 11 9 14 7 17 18\n");
+	// printf("0 12 4 6 5 2 15 13 16 10 19 1 8 3 11 9 14 7 17 18\n");
 	sort(arr, length);
 	
-	print_array(arr, length);
+	// print_array(arr, length);
 	solve(arr, length, stack);
 	
 	free(arr);

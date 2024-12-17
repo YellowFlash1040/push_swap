@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 17:58:24 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/15 17:58:58 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/15 19:13:24 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_stack	*pop(t_stack **top)
 	return (item);
 }
 
-void	push(t_stack *item, t_stack **top)
+void	push(t_stack *item, t_stack **top, char stack_name)
 {
 	t_stack	*last;
 
@@ -50,6 +50,8 @@ void	push(t_stack *item, t_stack **top)
 		(*top)->prev = item;
 	}
 	*top = item;
+	if (stack_name)
+		printf("p%c\n", stack_name);
 }
 
 t_stack	*create_item(int num)
