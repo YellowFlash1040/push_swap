@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 14:16:40 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/17 13:11:41 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/17 15:09:40 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void	rotate(t_stack **top, char stack_name)
 	if ((*top) && (*top)->next)
 	{
 		*top = (*top)->next;
-		printf("r%c\n", stack_name);
+		// printf("r%c\n", stack_name);
+		stack_name = 0;
 	}
 }
 
@@ -33,7 +34,8 @@ void	rev_rotate(t_stack **top, char stack_name)
 	{
 		new_top = new_top->prev;
 		*top = new_top;
-		printf("rr%c\n", stack_name);
+		// printf("rr%c\n", stack_name);
+		stack_name = 0;
 	}
 }
 
@@ -47,7 +49,8 @@ void	swap(t_stack **top, int stack_length, char stack_name)
 		swap_3(top);
 	else
 		swap_more_than_3(top);
-	printf("s%c\n", stack_name);
+	// printf("s%c\n", stack_name);
+	stack_name = 0;
 }
 
 void	swap_3(t_stack **top)
@@ -91,26 +94,3 @@ void	swap_more_than_3(t_stack **top)
 	third->prev = first;
 	*top = second;
 }
-
-// first = top (1)
-// second = first.next (2)
-// third = second.next (1)
-// last = first.prev (2)
-
-// first.next = second.next
-// first.prev = second
-// second.next = first
-// second.prev = last
-// last.next = second
-// third.prev = first
-
-// FIRST (1)
-// next = 1
-// prev = 2
-
-// SECOND (2)
-// next = 1
-// prev = 1
-
-// 2 -> 1 -> 2 -> 1
-//(4)  (1)  (2)  (3)
