@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 17:58:24 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/17 15:09:55 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/18 14:28:29 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,8 @@ void	push(t_stack *item, t_stack **top, char stack_name)
 		(*top)->prev = item;
 	}
 	*top = item;
-	// if (stack_name)
-	// 	printf("p%c\n", stack_name);
-	stack_name = 0;
+	if (stack_name)
+		printf("p%c\n", stack_name);
 }
 
 t_stack	*create_item(int num)

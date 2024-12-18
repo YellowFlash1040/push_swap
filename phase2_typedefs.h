@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 18:45:58 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/17 18:46:18 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/18 14:26:01 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct candidate
 	int			moves_count;
 }				t_candidate;
 
-// select candidate data
+// sc_data - select candidate data
 // c - candidate
 typedef struct sc_data
 {

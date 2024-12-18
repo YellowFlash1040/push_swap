@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 14:16:40 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/17 15:09:40 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/18 14:28:18 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	rotate(t_stack **top, char stack_name)
 	if ((*top) && (*top)->next)
 	{
 		*top = (*top)->next;
-		// printf("r%c\n", stack_name);
-		stack_name = 0;
+		if (stack_name)
+			printf("r%c\n", stack_name);
 	}
 }
 
@@ -34,8 +34,8 @@ void	rev_rotate(t_stack **top, char stack_name)
 	{
 		new_top = new_top->prev;
 		*top = new_top;
-		// printf("rr%c\n", stack_name);
-		stack_name = 0;
+		if (stack_name)
+			printf("rr%c\n", stack_name);
 	}
 }
 
@@ -49,8 +49,8 @@ void	swap(t_stack **top, int stack_length, char stack_name)
 		swap_3(top);
 	else
 		swap_more_than_3(top);
-	// printf("s%c\n", stack_name);
-	stack_name = 0;
+	if (stack_name)
+		printf("s%c\n", stack_name);
 }
 
 void	swap_3(t_stack **top)

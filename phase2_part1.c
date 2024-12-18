@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phase2.c                                           :+:      :+:    :+:   */
+/*   phase2_part1.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 14:12:04 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/17 19:00:42 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/18 14:30:20 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,50 +18,29 @@ static int			find_index_in_a(t_stack *stack_a, int a_len, int num);
 static int			find_index_in_b(t_stack *stack_b, int num);
 static t_rotation	*calc_rotations(int stack_len, int index_in_stack);
 
-void	phase2(t_stack **stack_a, t_stack **stack_b)
+void	phase2(t_stack **stack_a, t_stack **stack_b, int numbers_count,
+		int min_num)
 {
 	int			a_len;
 	int			b_len;
 	int			arr_len;
 	t_candidate	candidate;
 
-	arr_len = 20;
+	arr_len = numbers_count;
 	a_len = 3;
 	b_len = arr_len - a_len;
-	print_stacks(*stack_a, a_len, *stack_b, b_len);
+	// print_stacks(*stack_a, a_len, *stack_b, b_len);
 	while (*stack_b)
 	{
 		candidate = select_candidate(*stack_a, a_len, *stack_b, b_len);
-		// print_candidate(candidate);
-		if (candidate.a_rotations->type == 'u')
-		{
-			while (candidate.a_rotations->count--)
-				rotate(stack_a, 'a');
-		}
-		else
-		{
-			while (candidate.a_rotations->count--)
-				rev_rotate(stack_a, 'a');
-		}
-
-		if (candidate.b_rotations->type == 'u')
-		{
-			while (candidate.b_rotations->count--)
-				rotate(stack_b, 'b');
-		}
-		else
-		{
-			while (candidate.b_rotations->count--)
-				rev_rotate(stack_b, 'b');
-		}
+		rotate_stacks(stack_a, stack_b, candidate);
 		push(pop(stack_b), stack_a, 'a');
 		a_len++;
 		b_len--;
 		// print_stacks(*stack_a, a_len, *stack_b, b_len);
 	}
-	while ((*stack_a)->num != 0)
-		rotate(stack_a, 'a');
-	print_stacks(*stack_a, a_len, *stack_b, b_len);
+	bring_lowest_to_top(stack_a, a_len, min_num);
+	// print_stacks(*stack_a, a_len, *stack_b, b_len);
 }
 
 // selects best candidate
@@ -121,6 +100,8 @@ static int	find_index_in_a(t_stack *stack_a, int a_len, int num)
 	return (-1);
 }
 
+// finds an index of the current position of the element with value 'num'
+// in the stack_b
 static int	find_index_in_b(t_stack *stack_b, int num)
 {
 	int	i;

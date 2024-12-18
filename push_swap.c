@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 17:46:08 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/17 16:34:18 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/18 12:27:58 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	solve(int *arr, int length, t_stack *stack_a)
 
 	stack_b = NULL;
 	phase_1(&stack_a, &stack_b, arr, length);
-	phase2(&stack_a, &stack_b);
+	phase2(&stack_a, &stack_b, length, arr[0]);
 	while (stack_a)
 		free(pop(&stack_a));
 	while (stack_b)
