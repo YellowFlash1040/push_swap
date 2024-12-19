@@ -6,15 +6,14 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 14:15:50 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/15 19:10:59 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/19 15:05:46 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STACK_H
 # define STACK_H
 
-# include "malloc_check.h"
-# include <stdio.h>
+# include "print.h"
 # include <stdlib.h>
 
 typedef struct stack

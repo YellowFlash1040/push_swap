@@ -1,20 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   malloc_check.h                                     :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 14:15:50 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/10 18:43:49 by akovtune         ###   ########.fr       */
+/*   Created: 2024/12/19 14:54:53 by akovtune          #+#    #+#             */
+/*   Updated: 2024/12/19 15:10:50 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MALLOC_CHECK_H
-# define MALLOC_CHECK_H
+#include "print.h"
 
-# include <stdlib.h>
+void	print_move(const char *move, char stack_name)
+{
+	char	buffer[4];
+	int		i;
 
-void	*fmalloc(size_t size);
+	i = 0;
+	while (move[i])
+	{
+		buffer[i] = move[i];
+		i++;
+	}
+	if (stack_name)
+		buffer[i++] = stack_name;
+	buffer[i++] = '\n';
+	write(1, buffer, i);
+}
 
-#endif
+void	print_error(void)
+{
+	write(2, "Error\n", 6);
+}

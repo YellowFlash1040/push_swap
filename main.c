@@ -6,24 +6,13 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 14:31:55 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/19 14:44:08 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/19 15:15:52 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "args_parser.h"
+#include "print.h"
 #include "push_swap.h"
-#include "sort.h"
-#include <stdio.h>
-#include <unistd.h>
-
-// read
-// write
-// malloc
-// free
-// exit
-// ft_printf
-
-static void	print_error(void);
 
 int	main(int argsc, char **args)
 {
@@ -43,9 +32,4 @@ int	main(int argsc, char **args)
 		return (print_error(), 1);
 	clear_stack(&stack);
 	return (0);
-}
-
-static void	print_error(void)
-{
-	write(2, "Error\n", 6);
 }

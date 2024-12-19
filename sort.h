@@ -6,14 +6,12 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 17:41:33 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/15 17:41:41 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/19 15:17:07 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SORT_H
 # define SORT_H
-
-# include <stdbool.h>
 
 void	sort(int *arr, int length);
 

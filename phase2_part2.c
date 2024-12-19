@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 12:45:57 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/19 12:40:49 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/19 15:09:07 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static void	rotate_both_stacks(t_stack **stack_a, t_stack **stack_b, char type,
 	else
 		move_message = "rrr";
 	while (count--)
-		printf("%s\n", move_message);
+		print_move(move_message, false);
 }
 
 // first looks for the index of the min_num in the stack_a

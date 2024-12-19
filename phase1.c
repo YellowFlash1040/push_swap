@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 16:44:46 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/19 12:54:08 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/19 15:24:37 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 static void	sort_all_but_last_3(t_stack **stack_a, t_stack **stack_b, int *arr,
 				int len);
 static void	sort_remaining_3(t_stack **stack_a);
-// -------------------------------------------------------------------
 
 void	phase_1(t_stack **stack_a, t_stack **stack_b, int *arr, int length)
 {

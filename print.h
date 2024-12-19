@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list.h                                             :+:      :+:    :+:   */
+/*   print.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 14:15:50 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/10 18:48:27 by akovtune         ###   ########.fr       */
+/*   Created: 2024/12/19 14:54:54 by akovtune          #+#    #+#             */
+/*   Updated: 2024/12/19 15:10:58 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIST_H
-# define LIST_H
+#ifndef PRINT_H
+# define PRINT_H
 
-# include "malloc_check.h"
-# include <stdlib.h>
+# include <unistd.h>
 
-typedef struct list
-{
-	int			num;
-	struct list	*next;
-}				t_list;
-
-t_list			*add_node(int num, t_list **head);
-t_list			*add_node_front(int num, t_list **head);
-void			clear_list(t_list **head);
+void	print_move(const char *move, char stack_name);
+void	print_error(void);
 
 #endif

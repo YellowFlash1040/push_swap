@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 14:12:04 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/19 12:34:32 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/19 15:20:09 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@ static t_candidate	select_candidate(t_stack *stack_a, int a_len,
 static int			find_index_in_a(t_stack *stack_a, int a_len, int num);
 static int			find_index_in_b(t_stack *stack_b, int num);
 static t_rotation	calc_rotations(int stack_len, int index_in_stack);
+void				rotate_stacks(t_stack **stack_a, t_stack **stack_b,
+						t_candidate candidate);
+void				bring_lowest_to_top(t_stack **stack_a, int a_len,
+						int min_num);
 
 void	phase2(t_stack **stack_a, t_stack **stack_b, int numbers_count,
 		int min_num)
