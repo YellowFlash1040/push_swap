@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 16:44:46 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/17 14:04:42 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/19 12:54:08 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,28 +26,29 @@ void	phase_1(t_stack **stack_a, t_stack **stack_b, int *arr, int length)
 static void	sort_all_but_last_3(t_stack **stack_a, t_stack **stack_b, int *arr,
 		int len)
 {
-	t_phase1	p;
+	t_phase1_data	d;
+	int				i;
 
-	p.sort_arr_i = 0;
-	p.a_len = len;
-	p.b_len = 0;
+	d.sort_arr_i = 0;
+	d.a_len = len;
+	d.b_len = 0;
 	while (len > 3)
 	{
-		p.median_y = arr[p.sort_arr_i + len / 2];
-		p.median_x = arr[p.sort_arr_i + len / 4];
-		p.i = 0;
-		while (p.i++ < len && p.a_len > 3)
+		d.median_y = arr[d.sort_arr_i + len / 2];
+		d.median_x = arr[d.sort_arr_i + len / 4];
+		i = 0;
+		while (i++ < len && d.a_len > 3)
 		{
-			if ((*stack_a)->num < p.median_y && p.a_len-- && ++p.b_len)
+			if ((*stack_a)->num < d.median_y && d.a_len-- && ++d.b_len)
 			{
 				push(pop(stack_a), stack_b, 'b');
-				if ((*stack_b)->num < p.median_x)
+				if ((*stack_b)->num < d.median_x)
 					rotate(stack_b, 'b');
 			}
 			else
 				rotate(stack_a, 'a');
 		}
-		p.sort_arr_i += len / 2;
+		d.sort_arr_i += len / 2;
 		len -= len / 2;
 	}
 }

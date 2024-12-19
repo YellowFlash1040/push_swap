@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 14:12:04 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/18 14:30:20 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/19 12:34:32 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,17 @@ static t_candidate	select_candidate(t_stack *stack_a, int a_len,
 						t_stack *stack_b, int b_len);
 static int			find_index_in_a(t_stack *stack_a, int a_len, int num);
 static int			find_index_in_b(t_stack *stack_b, int num);
-static t_rotation	*calc_rotations(int stack_len, int index_in_stack);
+static t_rotation	calc_rotations(int stack_len, int index_in_stack);
 
 void	phase2(t_stack **stack_a, t_stack **stack_b, int numbers_count,
 		int min_num)
 {
 	int			a_len;
 	int			b_len;
-	int			arr_len;
 	t_candidate	candidate;
 
-	arr_len = numbers_count;
 	a_len = 3;
-	b_len = arr_len - a_len;
-	// print_stacks(*stack_a, a_len, *stack_b, b_len);
+	b_len = numbers_count - a_len;
 	while (*stack_b)
 	{
 		candidate = select_candidate(*stack_a, a_len, *stack_b, b_len);
@@ -37,10 +34,8 @@ void	phase2(t_stack **stack_a, t_stack **stack_b, int numbers_count,
 		push(pop(stack_b), stack_a, 'a');
 		a_len++;
 		b_len--;
-		// print_stacks(*stack_a, a_len, *stack_b, b_len);
 	}
 	bring_lowest_to_top(stack_a, a_len, min_num);
-	// print_stacks(*stack_a, a_len, *stack_b, b_len);
 }
 
 // selects best candidate
@@ -58,15 +53,14 @@ static t_candidate	select_candidate(t_stack *stack_a, int a_len,
 	item = stack_b;
 	while (d.candidates_count--)
 	{
-		d.c.value = item->num;
-		d.c.a_index = find_index_in_a(stack_a, a_len, d.c.value);
-		d.c.b_index = find_index_in_b(stack_b, d.c.value);
-		d.c.a_rotations = calc_rotations(a_len, d.c.a_index);
-		d.c.b_rotations = calc_rotations(b_len, d.c.b_index);
-		d.c.moves_count = d.c.a_rotations->count + d.c.b_rotations->count + 1;
-		if (d.c.moves_count < d.least_moves)
+		d.a_index = find_index_in_a(stack_a, a_len, item->num);
+		d.b_index = find_index_in_b(stack_b, item->num);
+		d.c.a_rotations = calc_rotations(a_len, d.a_index);
+		d.c.b_rotations = calc_rotations(b_len, d.b_index);
+		d.moves_count = d.c.a_rotations.count + d.c.b_rotations.count + 1;
+		if (d.moves_count < d.least_moves)
 		{
-			d.least_moves = d.c.moves_count;
+			d.least_moves = d.moves_count;
 			bc = d.c;
 		}
 		item = item->next;
@@ -115,24 +109,21 @@ static int	find_index_in_b(t_stack *stack_b, int num)
 	return (i);
 }
 
-static t_rotation	*calc_rotations(int stack_len, int index_in_stack)
+static t_rotation	calc_rotations(int stack_len, int index_in_stack)
 {
-	t_rotation	*rotations;
+	t_rotation	rotations;
 
-	rotations = (t_rotation *)malloc(sizeof(t_rotation));
-	if (!rotations)
-		return (NULL);
 	if (index_in_stack > stack_len / 2)
 	{
-		rotations->count = stack_len - index_in_stack;
-		rotations->type = 'd';
+		rotations.count = stack_len - index_in_stack;
+		rotations.type = 'd';
 	}
 	else
 	{
-		rotations->count = index_in_stack;
-		rotations->type = 'u';
+		rotations.count = index_in_stack;
+		rotations.type = 'u';
 	}
 	if (stack_len % 2 == 0 && index_in_stack == stack_len / 2)
-		rotations->type = 'b';
+		rotations.type = 'b';
 	return (rotations);
 }

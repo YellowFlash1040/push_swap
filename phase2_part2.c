@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 12:45:57 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/18 14:22:37 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/19 12:40:49 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,24 @@ void	rotate_stacks(t_stack **stack_a, t_stack **stack_b,
 	char	type;
 	int		count;
 
-	if (candidate.b_rotations->type == 'b')
-		candidate.b_rotations->type = candidate.a_rotations->type;
-	if (candidate.a_rotations->type == candidate.b_rotations->type)
+	if (candidate.b_rotations.type == 'b')
+		candidate.b_rotations.type = candidate.a_rotations.type;
+	if (candidate.a_rotations.type == candidate.b_rotations.type)
 	{
-		type = candidate.a_rotations->type;
-		if (candidate.a_rotations->count < candidate.b_rotations->count)
-			count = candidate.a_rotations->count;
+		type = candidate.a_rotations.type;
+		if (candidate.a_rotations.count < candidate.b_rotations.count)
+			count = candidate.a_rotations.count;
 		else
-			count = candidate.b_rotations->count;
-		candidate.a_rotations->count -= count;
-		candidate.b_rotations->count -= count;
+			count = candidate.b_rotations.count;
 		if (count > 0)
 			rotate_both_stacks(stack_a, stack_b, type, count);
+		candidate.a_rotations.count -= count;
+		candidate.b_rotations.count -= count;
 	}
-	rotate_one_stack(stack_a, 'a', candidate.a_rotations->type,
-		candidate.a_rotations->count);
-	rotate_one_stack(stack_b, 'b', candidate.b_rotations->type,
-		candidate.b_rotations->count);
+	rotate_one_stack(stack_a, 'a', candidate.a_rotations.type,
+		candidate.a_rotations.count);
+	rotate_one_stack(stack_b, 'b', candidate.b_rotations.type,
+		candidate.b_rotations.count);
 }
 
 static void	rotate_one_stack(t_stack **stack, char stack_name, char type,
@@ -61,18 +61,21 @@ static void	rotate_one_stack(t_stack **stack, char stack_name, char type,
 static void	rotate_both_stacks(t_stack **stack_a, t_stack **stack_b, char type,
 		int count)
 {
-	char	*string;
+	char	*move_message;
 
 	rotate_one_stack(stack_a, false, type, count);
 	rotate_one_stack(stack_b, false, type, count);
 	if (type == 'u')
-		string = "rr";
+		move_message = "rr";
 	else
-		string = "rrr";
+		move_message = "rrr";
 	while (count--)
-		printf("%s\n", string);
+		printf("%s\n", move_message);
 }
 
+// first looks for the index of the min_num in the stack_a
+// and then depending on the index chooses better rotation type
+// and moves the min_num to the top
 void	bring_lowest_to_top(t_stack **stack_a, int a_len, int min_num)
 {
 	int		i;
