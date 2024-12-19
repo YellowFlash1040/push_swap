@@ -6,31 +6,32 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 14:39:19 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/15 17:55:29 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/19 14:27:35 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "args_parser.h"
 
 static bool	check_and_atoi(const char *str, int *res);
+static bool	has_duplicate(int *arr, int length);
 
-t_list	*parse(int argsc, char **args)
+int	*parse(int argsc, char **args)
 {
-	int		i;
-	int		num;
-	t_list	*list;
+	int	i;
+	int	num;
+	int	*arr;
+	int	length;
 
-	if (argsc > 1)
-	{
-		i = 0;
-		list = NULL;
-		while (++i < argsc && check_and_atoi(args[i], &num))
-			if (!add_node_front(num, &list))
-				return (clear_list(&list), NULL);
-		if (i == argsc)
-			return (list);
-		clear_list(&list);
-	}
+	length = argsc;
+	arr = (int *)malloc(sizeof(int) * length);
+	if (!arr)
+		return (NULL);
+	i = 0;
+	while (i < length && check_and_atoi(args[--argsc], &num))
+		arr[i++] = num;
+	if (i == length && !has_duplicate(arr, length))
+		return (arr);
+	free(arr);
 	return (NULL);
 }
 
@@ -59,20 +60,22 @@ static bool	check_and_atoi(const char *str, int *res)
 	return (true);
 }
 
-bool	has_duplicate(t_list *list)
+static bool	has_duplicate(int *arr, int length)
 {
-	t_list	*node;
+	int	i;
+	int	j;
 
-	while (list)
+	i = 0;
+	while (i < length - 1)
 	{
-		node = list->next;
-		while (node)
+		j = i + 1;
+		while (j < length)
 		{
-			if (node->num == list->num)
+			if (arr[j] == arr[i])
 				return (true);
-			node = node->next;
+			j++;
 		}
-		list = list->next;
+		i++;
 	}
 	return (false);
 }

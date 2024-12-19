@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 14:04:35 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/17 15:04:50 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/19 14:02:51 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@
 # include "phase2.h"
 # include <stdio.h>
 
-void	solve(int *arr, int length, t_stack *stack_a);
+void	solve(int *arr, int length, t_stack **stack_a);
 
 #endif
