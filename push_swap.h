@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 14:04:35 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/19 14:02:51 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/19 14:42:58 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 
 # include "phase1.h"
 # include "phase2.h"
+# include "sort.h"
 # include <stdio.h>
 
-void	solve(int *arr, int length, t_stack **stack_a);
+t_stack	*push_swap(int *arr, int length);
 
 #endif
