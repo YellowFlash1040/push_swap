@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 14:39:19 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/19 14:27:35 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/20 17:57:36 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ static bool	check_and_atoi(const char *str, int *res)
 	bool	m;
 	int		digit;
 
+	if (!str || !*str)
+		return (false);
 	*res = 0;
 	m = false;
 	if (*str == '-' || *str == '+')
