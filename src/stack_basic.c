@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 17:58:24 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/19 15:10:04 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/20 18:05:07 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,8 @@ void	clear_stack(t_stack **top)
 {
 	t_stack	*temp;
 
-	(*top)->prev->next = NULL;
+	if ((*top)->prev)
+		(*top)->prev->next = NULL;
 	while (*top)
 	{
 		temp = (*top)->next;
