@@ -6,13 +6,14 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 17:46:08 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/19 14:47:56 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/22 13:38:10 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 static bool	initialize_stack(int *arr, int length, t_stack **stack);
+static void	handle_less_than_3(t_stack **stack_a, int a_len);
 
 t_stack	*push_swap(int *arr, int length)
 {
@@ -23,6 +24,11 @@ t_stack	*push_swap(int *arr, int length)
 	stack_b = NULL;
 	if (!initialize_stack(arr, length, &stack_a))
 		return (NULL);
+	if (length < 3)
+	{
+		handle_less_than_3(&stack_a, length);
+		return (stack_a);
+	}
 	sort(arr, length);
 	phase_1(&stack_a, &stack_b, arr, length);
 	phase2(&stack_a, &stack_b, length, arr[0]);
@@ -46,4 +52,12 @@ static bool	initialize_stack(int *arr, int length, t_stack **stack)
 		push(item, stack, false);
 	}
 	return (true);
+}
+
+static void	handle_less_than_3(t_stack **stack_a, int a_len)
+{
+	if (a_len == 1)
+		return ;
+	if ((*stack_a)->num > (*stack_a)->next->num)
+		swap(stack_a, a_len, 'a');
 }
