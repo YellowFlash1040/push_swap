@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 15:33:25 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/20 16:02:12 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/22 14:00:31 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,27 +30,26 @@ t_stack	*parse_numbers(int argsc, char **args)
 	return (stack);
 }
 
-t_list	*parse_commands(void)
+bool	parse_commands(t_list **commands)
 {
-	t_list	*commands;
 	char	*command;
 	bool	success;
 
-	commands = NULL;
+	*commands = NULL;
 	success = read_command(&command);
 	if (!success)
 		return (NULL);
 	while (command)
 	{
 		if (!is_valid_command(command))
-			return (free(command), clear_list(&commands), NULL);
-		if (!add_node(command, &commands))
-			return (free(command), clear_list(&commands), NULL);
+			return (free(command), clear_list(commands), false);
+		if (!add_node(command, commands))
+			return (free(command), clear_list(commands), false);
 		success = read_command(&command);
 		if (!success)
-			return (clear_list(&commands), NULL);
+			return (clear_list(commands), false);
 	}
-	return (commands);
+	return (true);
 }
 
 static void	initialize_stack(int *arr, int length, t_stack **stack)

@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 15:32:24 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/20 16:26:57 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/22 13:55:06 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@
 # include "list.h"
 
 t_stack	*parse_numbers(int argsc, char **args);
-t_list	*parse_commands(void);
+bool	parse_commands(t_list **commands);
 
 #endif

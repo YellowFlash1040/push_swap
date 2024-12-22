@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/22 14:06:40 by akovtune          #+#    #+#             */
+/*   Updated: 2024/12/22 14:06:40 by akovtune         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "checker.h"
 #include "executor.h"
 #include "parser.h"
@@ -17,8 +29,8 @@ int	main(int argsc, char **args)
 	data = initialize_data(argsc, args);
 	if (!data)
 		return (print_error(), 1);
-	commands = parse_commands();
-	if (!commands)
+	commands = NULL;
+	if (!parse_commands(&commands))
 		return (free_data(data), print_error(), 1);
 	while (commands)
 	{

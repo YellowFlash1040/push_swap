@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 16:11:59 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/20 17:48:25 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/22 14:05:07 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ bool	check(t_push_swap *data)
 static bool	is_sorted(t_stack *stack, int stack_len)
 {
 	while (--stack_len > 0)
+	{
 		if (!(stack->next->num > stack->num))
 			return (false);
+		stack = stack->next;
+	}
 	return (true);
 }
