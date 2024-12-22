@@ -6,13 +6,14 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 17:46:08 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/22 13:38:10 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/22 13:45:09 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 static bool	initialize_stack(int *arr, int length, t_stack **stack);
+static bool	is_sorted(t_stack *stack, int stack_len);
 static void	handle_less_than_3(t_stack **stack_a, int a_len);
 
 t_stack	*push_swap(int *arr, int length)
@@ -24,6 +25,8 @@ t_stack	*push_swap(int *arr, int length)
 	stack_b = NULL;
 	if (!initialize_stack(arr, length, &stack_a))
 		return (NULL);
+	if (is_sorted(stack_a, length))
+		return (stack_a);
 	if (length < 3)
 	{
 		handle_less_than_3(&stack_a, length);
@@ -60,4 +63,12 @@ static void	handle_less_than_3(t_stack **stack_a, int a_len)
 		return ;
 	if ((*stack_a)->num > (*stack_a)->next->num)
 		swap(stack_a, a_len, 'a');
+}
+
+static bool	is_sorted(t_stack *stack, int stack_len)
+{
+	while (--stack_len > 0)
+		if (!(stack->next->num > stack->num))
+			return (false);
+	return (true);
 }
