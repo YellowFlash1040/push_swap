@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 15:33:25 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/22 14:00:31 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/22 15:15:24 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_stack	*parse_numbers(int argsc, char **args)
 	int		length;
 
 	length = argsc - 1;
-	arr = parse(length, &(args[1]));
+	arr = parse(&length, &(args[1]));
 	if (!arr)
 		return (NULL);
 	stack = NULL;

@@ -9,10 +9,11 @@ BONUS_DIR := bonus
 BONUS_OBJ_DIR := bonus_obj
 
 # Files
-FILES   := args_parser.c main.c phase1.c phase2_part1.c phase2_part2.c \
-           print.c push_swap.c sort.c stack_advanced.c stack_basic.c
+FILES   := args_parser.c args_parser_part2.c split.c phase1.c \
+			phase2_part1.c phase2_part2.c print.c push_swap.c \
+			sort.c stack_advanced.c stack_basic.c main.c
 BONUS_FILES := main.c list.c parser.c executor.c commands.c checker.c
-SHARED_FILES := args_parser.c print.c stack_advanced.c stack_basic.c
+SHARED_FILES := args_parser.c args_parser_part2.c split.c print.c stack_advanced.c stack_basic.c
 
 # Sources and Objects
 SRCS    := $(addprefix $(SRC_DIR)/, $(FILES))

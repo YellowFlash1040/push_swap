@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 14:39:34 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/19 14:27:32 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/22 15:10:24 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@
 # include <stdbool.h>
 # include <stdlib.h>
 
-int	*parse(int argsc, char **args);
+int	*parse(int *argsc, char **args);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 17:46:08 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/22 13:45:09 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/22 15:13:39 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,10 @@ static void	handle_less_than_3(t_stack **stack_a, int a_len)
 static bool	is_sorted(t_stack *stack, int stack_len)
 {
 	while (--stack_len > 0)
+	{
 		if (!(stack->next->num > stack->num))
 			return (false);
+		stack = stack->next;
+	}
 	return (true);
 }
