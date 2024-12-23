@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 17:58:24 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/20 18:05:07 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/23 14:20:14 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ t_stack	*pop(t_stack **top)
 	t_stack	*item;
 	t_stack	*last;
 
+	if (!top || !*top)
+		return (NULL);
 	last = (*top)->prev;
 	if (last)
 		last->next = (*top)->next;

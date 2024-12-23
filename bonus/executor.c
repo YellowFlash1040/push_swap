@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 14:45:27 by akovtune          #+#    #+#             */
-/*   Updated: 2024/12/20 16:40:01 by akovtune         ###   ########.fr       */
+/*   Updated: 2024/12/23 14:19:25 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,20 @@ static void	execute_swap(t_push_swap *data, char *command)
 
 static void	execute_push(t_push_swap *data, char *command)
 {
+	t_stack	*item;
+
 	if (compare(command, "pa\n") == 0)
-		push(pop(&(data->stack_b)), &(data->stack_a), false);
+	{
+		item = pop(&(data->stack_b));
+		if (item)
+			push(item, &(data->stack_a), false);
+	}
 	else if (compare(command, "pb\n") == 0)
-		push(pop(&(data->stack_a)), &(data->stack_b), false);
+	{
+		item = pop(&(data->stack_a));
+		if (item)
+			push(item, &(data->stack_b), false);
+	}
 }
 
 static void	execute_rotate(t_push_swap *data, char *command)
